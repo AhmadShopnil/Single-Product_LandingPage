@@ -9,7 +9,7 @@ export const PurchaseSection = ({
     handlePlaceOrder 
 }) => {
     // Mock image data for gallery
-    const images = ['/images/2.png', '/images/3.png', '/images/3.png'];
+    const images = ['/images/2.png', '/images/3.png', '/images/4.png'];
     const [mainImage, setMainImage] = useState(images[0]);
 
     const handleFormChange = (e) => {
@@ -127,8 +127,9 @@ export const PurchaseSection = ({
                         {/* Place Order Button */}
                         <button 
                             type="submit"
-                            className="w-full text-center bg-green-500 hover:bg-green-600 text-white font-bold py-4 
-                            rounded-xl shadow-2xl transition duration-300 text-lg tracking-wide uppercase transform hover:scale-[1.01]"
+                            className="w-full text-center bg-green-500 hover:bg-green-600 text-white font-semibold py-3 
+                            rounded-xl shadow-2xl transition duration-300 text-lg tracking-wide uppercase
+                             transform hover:scale-[1.01]"
                         >
                             Order Now ({totalPrice} Tk)
                         </button>
