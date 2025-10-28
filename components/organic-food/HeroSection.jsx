@@ -7,6 +7,8 @@ export const HeroSection = () => (
         
         {/* Added max-w-lg and mx-auto for desktop centering */}
         <div className="relative z-10 p-6 md:p-12 md:max-w-xl md:mx-auto md:text-center lg:text-left lg:mx-0 lg:ml-20">
+
+        
             <span className="inline-block bg-green-500 text-xs font-semibold px-3 py-1 mb-2 rounded-full uppercase tracking-wider shadow-md">
                  Freshness Guarantee
             </span>

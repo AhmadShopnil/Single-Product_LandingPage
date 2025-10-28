@@ -7,7 +7,7 @@ export const FeaturesSection = () => {
   ];
 
   return (
-    <section className="py-12 px-6 bg-white md:py-20">
+    <section className="py-12 md:px-6 bg-white md:py-20">
       <h2 className="text-3xl font-bold text-center text-gray-800 mb-10">Why Choose Our Organic Products?</h2>
       
       <div className="space-y-8  grid grid-cols-1 xl:grid-cols-3 gap-4">

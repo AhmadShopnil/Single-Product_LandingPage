@@ -19,7 +19,7 @@ export const PurchaseSection = ({
     const shippingCharge = shippingData[selectedDistrict] || shippingData.Other;
 
     return (
-        <section id="purchase" className="py-12 px-4 md:py-16 bg-white border-t border-gray-100">
+        <section id="purchase" className="py-12 md:px-4 md:py-16 bg-white border-t border-gray-100">
             <h2 className="text-4xl font-extrabold text-center text-gray-800 mb-12">
                 Order Now & Experience the Purity
             </h2>

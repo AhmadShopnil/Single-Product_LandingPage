@@ -7,6 +7,8 @@ import { CountdownSection } from '../../components/organic-food/CountdownSection
 import { FeaturesSection } from '../../components/organic-food/FeaturesSection';
 import { ReviewsSection } from '../../components/organic-food/ReviewsSection';
 import { PurchaseSection } from '../../components/organic-food/PurchaseSection';
+import Navbar from '../../components/organic-food/Navbar';
+import Footer from '../../components/organic-food/Footer';
 
 const shippingData = {
     Dhaka: 80, // Example shipping charge
@@ -49,10 +51,13 @@ const shippingData = {
 
     return (
         <div className="min-h-screen bg-gray-50 font-sans">
-            <Head>...</Head>
-            <main>
-                <HeroSection />
-                <CountdownSection />
+            {/* <Head>...</Head> */}
+            <Navbar/>
+            <HeroSection/>
+            <CountdownSection />
+            <div className='container mx-auto px-2 md:px-6'>
+                
+                
                 <FeaturesSection />
                
                 
@@ -69,8 +74,10 @@ const shippingData = {
                     PRODUCT_PRICE={PRODUCT_PRICE}
                     handlePlaceOrder={handlePlaceOrder}
                 />
-                 <ReviewsSection />
-            </main>
+                
+            </div>
+             <ReviewsSection />
+            <Footer/>
         </div>
     );
 };

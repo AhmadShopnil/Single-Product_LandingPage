@@ -13,11 +13,13 @@ export const ReviewsSection = () => {
   );
 
   return (
-    <section className="py-12 px-6 bg-yellow-50 md:py-20">
-      <h2 className="text-3xl font-bold text-center text-gray-800 mb-4">What Our Customers Say</h2>
+    <section className="py-12 md:px-6 bg-yellow-50 md:py-20 ">
+     <div className="px-1 md:px-0">
+       <h2 className="text-3xl font-bold text-center text-gray-800 mb-4 ">What Our Customers Say</h2>
       <p className="text-center text-gray-600 mb-10">4.9/5 stars based on 1,200+ happy customers</p>
+     </div>
       
-      <div className="space-y-6">
+      <div className="space-y-6 container mx-auto px-6">
         {reviews.map((review, index) => (
           <div key={index} className="bg-white p-6 rounded-xl shadow-lg border border-gray-100">
             <StarRating count={review.rating} />
