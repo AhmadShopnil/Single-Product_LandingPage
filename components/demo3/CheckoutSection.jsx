@@ -84,7 +84,7 @@ export default function CheckoutSection() {
 
   return (
     <section className="py-10 px-4 bg-background">
-      <div className="max-w-7xl mx-auto">
+      <div className="container mx-auto">
       
 
         <div className="space-y-12">
