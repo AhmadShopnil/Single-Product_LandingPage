@@ -55,17 +55,16 @@ export default function Checkout() {
   const total = subtotal + shippingCharge
 
   return (
-    <section className="py-12 md:py-16 bg-gray-50">
-      <div className="max-w-6xl mx-auto px-4 md:px-6">
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-12 text-center">Checkout</h2>
+    <section className="py-3 md:py-10 bg-gray-50">
+      <div className="container mx-auto px-2 md:px-6">
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-4">
           {/* Product and Quantity */}
           <div className="md:col-span-2">
-            <div className="bg-white rounded-lg p-6 md:p-8 mb-6">
+            <div className="bg-white rounded-lg px-2 md:px-4 ">
               <h3 className="text-xl font-bold text-gray-800 mb-6">Order Summary</h3>
 
-              <div className="flex gap-4 mb-8 pb-8 border-b">
+              <div className="flex gap-4 mb-4 md:mb-6 pb-6 border-b">
                 <div className="w-24 h-24 bg-gray-200 rounded-lg flex-shrink-0">
                   <img
                     src="/images/organic-honey-jar.jpg"
@@ -74,40 +73,56 @@ export default function Checkout() {
                   />
                 </div>
                 <div className="flex-1">
-                  <h4 className="text-lg font-semibold text-gray-800">Premium Organic Honey</h4>
-                  <p className="text-gray-600 text-sm mb-3">Pure, natural, and unfiltered</p>
-                  <p className="text-2xl font-bold text-green-600">৳{productPrice}</p>
+                  <h4 className="text-base font-semibold text-gray-800 mb-1">Premium Organic Honey</h4>
+                  {/* <p className="text-gray-600 text-xs mb-3">Pure, natural, and unfiltered</p> */}
+                  <div className="flex gap-4 justify-start items-center">
+                    <p className="text-base font-bold text-green-600">৳{productPrice}</p>
+                    {/* Quantity Selector */}
+                    <div className="">
+
+                      <div className="flex items-center gap-2">
+                        <button
+                          onClick={() => handleQuantityChange("decrease")}
+                          className="w-7 h-7 border border-gray-300 rounded-sm  flex items-center justify-center hover:bg-gray-100 transition-colors"
+                        >
+                          −
+                        </button>
+                        <span className="text-sm font-bold text-gray-800 min-w-6 text-center">{quantity}</span>
+                        <button
+                          onClick={() => handleQuantityChange("increase")}
+                          className="w-7 h-7 border border-gray-300 rounded-sm flex items-center justify-center hover:bg-gray-100 transition-colors"
+                        >
+                          +
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+
+                </div>
+              </div>
+              <div className="space-y-3 mb-3 md:mb-6 pb-3 md:pb-6 border-b">
+                <div className="flex justify-between text-gray-700">
+                  <span>
+                    Subtotal ({quantity} item{quantity > 1 ? "s" : ""})
+                  </span>
+                  <span className="font-semibold">৳ {subtotal}</span>
+                </div>
+                <div className="flex justify-between text-gray-700">
+                  <span>Shipping Charge</span>
+                  <span className="font-semibold">৳ {shippingCharge}</span>
                 </div>
               </div>
 
-              {/* Quantity Selector */}
-              <div className="mb-8">
-                <label className="block text-sm font-semibold text-gray-700 mb-3">Quantity</label>
-                <div className="flex items-center gap-4">
-                  <button
-                    onClick={() => handleQuantityChange("decrease")}
-                    className="w-10 h-10 border-2 border-gray-300 rounded-lg flex items-center justify-center hover:bg-gray-100 transition-colors"
-                  >
-                    −
-                  </button>
-                  <span className="text-2xl font-bold text-gray-800 min-w-12 text-center">{quantity}</span>
-                  <button
-                    onClick={() => handleQuantityChange("increase")}
-                    className="w-10 h-10 border-2 border-gray-300 rounded-lg flex items-center justify-center hover:bg-gray-100 transition-colors"
-                  >
-                    +
-                  </button>
-                </div>
-              </div>
             </div>
 
             {/* Shipping Information */}
-            <div className="bg-white rounded-lg p-6 md:p-8">
+            <div className="bg-white rounded-lg px-2 md:px-4">
               <h3 className="text-xl font-bold text-gray-800 mb-6">Shipping Information</h3>
 
               <div className="space-y-4">
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">Full Name *</label>
+                  <label className="block text-sm font-semibold text-gray-700 mb-1.5">Full Name *</label>
                   <input
                     type="text"
                     name="name"
@@ -119,7 +134,7 @@ export default function Checkout() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">Phone Number *</label>
+                  <label className="block text-sm font-semibold text-gray-700 mb-1.5">Phone Number *</label>
                   <input
                     type="tel"
                     name="phone"
@@ -132,7 +147,7 @@ export default function Checkout() {
 
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">District *</label>
+                    <label className="block text-sm font-semibold text-gray-700 mb-1.5">District *</label>
                     <select
                       name="district"
                       value={formData.district}
@@ -148,27 +163,10 @@ export default function Checkout() {
                     </select>
                   </div>
 
-                  {/* <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">Thana/Upazila *</label>
-                    <select
-                      name="thana"
-                      value={formData.thana}
-                      onChange={handleInputChange}
-                      disabled={!formData.district}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-600 disabled:bg-gray-100"
-                    >
-                      <option value="">Select Thana</option>
-                      {formData.district &&
-                        thanas[formData.district]?.map((thana) => (
-                          <option key={thana} value={thana}>
-                            {thana}
-                          </option>
-                        ))}
-                    </select>
-                  </div> */}
+
 
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">Thana *</label>
+                    <label className="block text-sm font-semibold text-gray-700 mb-1.5">Thana *</label>
                     <input
                       type="text"
                       name="thana"
@@ -182,13 +180,13 @@ export default function Checkout() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">Address *</label>
+                  <label className="block text-sm font-semibold text-gray-700 mb-1.5">Address *</label>
                   <textarea
                     name="address"
                     value={formData.address}
                     onChange={handleInputChange}
                     placeholder="Enter your complete address"
-                    rows="3"
+                    rows="2"
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-600"
                   />
                 </div>
@@ -198,10 +196,10 @@ export default function Checkout() {
 
           {/* Order Summary Sidebar */}
           <div className="md:col-span-1">
-            <div className="bg-white rounded-lg p-6 sticky top-4">
-              <h3 className="text-xl font-bold text-gray-800 mb-6">Order Total</h3>
+            <div className="bg-white rounded-lg px-2 md:px-4 sticky top-4">
 
-              <div className="space-y-3 mb-6 pb-6 border-b">
+
+              <div className="hidden md:block  space-y-3 mb-6 pb-6 border-b">
                 <div className="flex justify-between text-gray-700">
                   <span>
                     Subtotal ({quantity} item{quantity > 1 ? "s" : ""})
@@ -214,13 +212,13 @@ export default function Checkout() {
                 </div>
               </div>
 
-              <div className="flex justify-between items-center mb-6">
+              <div className="hidden md:flex   justify-between items-center mb-6">
                 <span className="text-lg font-bold text-gray-800">Total</span>
                 <span className="text-3xl font-bold text-green-600">৳{total}</span>
               </div>
 
-              <button className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 rounded-lg transition-colors mb-3">
-                Proceed to Payment
+              <button className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 rounded-md transition-colors mb-3">
+                Proceed to Payment ( ৳ {total} )
               </button>
 
               {/* <button className="w-full border-2 border-green-600 text-green-600 hover:bg-green-50 font-bold py-3 rounded-lg transition-colors">

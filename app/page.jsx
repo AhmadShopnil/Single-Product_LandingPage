@@ -7,7 +7,7 @@ export default function Home() {
   const products = [
     { name: "Organic Food", href: "/organic-food", color: "from-green-500 to-green-700" },
     { name: "Organic Demo 2", href: "/organic-b", color: "from-green-500 to-green-700" },
-    { name: "Panjabi", href: "https://e-fabrichouse.netlify.app/", color: "from-pink-500 to-rose-700" },
+    { name: "Panjabi", href: "/design1", color: "from-pink-500 to-rose-700" },
     { name: "Gadget", href: "https://gadgets-shop-1.netlify.app/", color: "from-teal-500 to-emerald-700" },
     
   ];

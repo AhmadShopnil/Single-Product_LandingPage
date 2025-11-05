@@ -2,13 +2,14 @@
 "use client"
 import Head from 'next/head';
 import { useState, useMemo, useEffect } from 'react';
-import { HeroSection } from '../../components/organic-food/HeroSection';
-import { CountdownSection } from '../../components/organic-food/CountdownSection';
-import { FeaturesSection } from '../../components/organic-food/FeaturesSection';
-import { ReviewsSection } from '../../components/organic-food/ReviewsSection';
-import { PurchaseSection } from '../../components/organic-food/PurchaseSection';
-import Navbar from '../../components/organic-food/Navbar';
-import Footer from '../../components/organic-food/Footer';
+import Navbar from '../../../components/organic-food/Navbar';
+import { HeroSection } from '../../../components/organic-food/HeroSection';
+import { FeaturesSection } from '../../../components/organic-food/FeaturesSection';
+import { PurchaseSection } from '../../../components/organic-food/PurchaseSection';
+import { ReviewsSection } from '../../../components/organic-food/ReviewsSection';
+import Footer from '../../../components/organic-food/Footer';
+import CountdownSection from '../../../components/organic-food/CountdownSection';
+
 
 const shippingData = {
     Dhaka: 80, // Example shipping charge
@@ -57,7 +58,7 @@ const shippingData = {
             <CountdownSection />
             <div className='container mx-auto px-2 md:px-6'>       
                 <FeaturesSection />            
-                <PurchaseSection 
+                <PurchaseSection
                     quantity={quantity}
                     setQuantity={setQuantity}
                     selectedDistrict={selectedDistrict}
